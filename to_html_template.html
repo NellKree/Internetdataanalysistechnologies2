@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albums Information</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .track-table {
+            width: 100%;
+            border: none;
+        }
+        .track-table th, .track-table td {
+            border: none;
+            padding: 5px;
+        }
+        .track-table th {
+            text-align: center;
+            background-color: #e6e6e6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Albums Information</h1>
+    <table>
+        <tr>
+            <th>Album Title</th>
+            <th>Genres</th>
+            <th>Artists</th>
+            <th>Album Length</th>
+            <th>Release Date</th>
+            <th>Age Restriction</th>
+            <th>Tracks</th>
+        </tr>
+        {% for album in albums %}
+        <tr>
+            <td>{{ album.title }}</td>
+            <td>
+                {% for genre in album.genres %}
+                    {{ genre }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for artist in album.artists %}
+                    {{ artist }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+            <td>{{ album.album_length }}</td>
+            <td>{{ album.release_date }}</td>
+            <td>{{ album.age_restriction }}</td>
+            <td>
+                <table class="track-table">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Duration</th>
+                    </tr>
+                    {% for track in album.tracks %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ track.name }}</td>
+                        <td>{{ track.duration }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

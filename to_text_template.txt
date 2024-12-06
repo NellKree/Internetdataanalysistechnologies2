@@ -1,0 +1,7 @@
+{{#data.albums}}
+Album Title: {{title}}
+Tracks:
+{{#tracks}}
+  - {{name}} (Duration: {{duration}})
+{{/tracks}}
+{{/data.albums}}

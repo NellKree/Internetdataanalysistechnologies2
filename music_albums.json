@@ -1,0 +1,159 @@
+{
+  "albums": [
+    {
+      "number": 1,
+      "title": "BRAT",
+      "genres": [
+        "Electropop",
+        "Club-pop",
+        "Hyperpop",
+        "Dance",
+        "Electroclash"
+      ],
+      "artists": [
+        "Charli XCX"
+      ],
+      "album_length": "41:23",
+      "release_date": "07.06.2024",
+      "age_restriction": "13+",
+      "tracks": [
+        {
+          "name": "Girl, So Confusing",
+          "duration": "2:54"
+        },
+        {
+          "name": "Apple",
+          "duration": "2:31"
+        },
+        {
+          "name": "B2B",
+          "duration": "2:58"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Starboy",
+      "genres": [
+        "R&B",
+        "Pop",
+        "Alternative R&B"
+      ],
+      "artists": [
+        "The Weeknd"
+      ],
+      "album_length": "68:40",
+      "release_date": "25.11.2016",
+      "age_restriction": "16+",
+      "tracks": [
+        {
+          "name": "False Alarm",
+          "duration": "3:40"
+        },
+        {
+          "name": "Sidewalks",
+          "duration": "3:51"
+        },
+        {
+          "name": "Die for You",
+          "duration": "4:20"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Vultures 1",
+      "genres": [
+        "R&B",
+        "Hip hop",
+        "trap",
+        "house"
+      ],
+      "artists": [
+        "¥$",
+        "Kanye West",
+        "Ty Dolla Sign"
+      ],
+      "album_length": "55:40",
+      "release_date": "10.02.2024",
+      "age_restriction": "16+",
+      "tracks": [
+        {
+          "name": "Stars",
+          "duration": "1:55"
+        },
+        {
+          "name": "Back to Me",
+          "duration": "4:55"
+        },
+        {
+          "name": "Carnival",
+          "duration": "4:24"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Mr. Morale & the Big Steppers",
+      "genres": [
+        "Conscious hip hop",
+        "Rap"
+      ],
+      "artists": [
+        "Kendrick Lamar"
+      ],
+      "album_length": "73:06",
+      "release_date": "13.05.2022",
+      "age_restriction": "16+",
+      "tracks": [
+        {
+          "name": "N95",
+          "duration": "3:15"
+        },
+        {
+          "name": "Rich Spirit",
+          "duration": "3:22"
+        },
+        {
+          "name": "Count Me Out",
+          "duration": "4:43"
+        },
+        {
+          "name": "We Cry Together",
+          "duration": "5:41"
+        },
+        {
+          "name": "Mother I Sober",
+          "duration": "6:46"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Always Live For Always",
+      "genres": [
+        "Pop"
+      ],
+      "artists": [
+        "Skott"
+      ],
+      "album_length": "43:16",
+      "release_date": "26.06.2020",
+      "age_restriction": "6+",
+      "tracks": [
+        {
+          "name": "Midas",
+          "duration": "4:07"
+        },
+        {
+          "name": "Kodak & Codeine",
+          "duration": "2:59"
+        },
+        {
+          "name": "Settle Down",
+          "duration": "3:35"
+        }
+      ]
+    }
+  ]
+}
