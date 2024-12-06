@@ -1,7 +1,24 @@
-{{#data.albums}}
-Album Title: {{title}}
+Albums List
+
+{% for album in data['albums'] %}
+Album {{ album['number'] }}: {{ album['title'] }}
+Genres:
+{% for genre in album['genres'] %}
+    {{ genre }}{% if not loop.last %}, {% endif %}
+{% endfor %}
+
+Artists:
+{% for artist in album['artists'] %}
+    {{ artist }}{% if not loop.last %}, {% endif %}
+{% endfor %}
+
+Album Length: {{ album['album_length'] }}
+Release Date: {{ album['release_date'] }}
+Age Restriction: {{ album['age_restriction'] }}
+
 Tracks:
-{{#tracks}}
-  - {{name}} (Duration: {{duration}})
-{{/tracks}}
-{{/data.albums}}
+{% for track in album['tracks'] %}
+    {{ loop.index }}. {{ track['name'] }} ({{ track['duration'] }})
+{% endfor %}
+
+{% endfor %}

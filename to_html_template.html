@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albums Information</title>
+    <title>Albums List</title>
     <style>
         table {
             width: 100%;
@@ -32,7 +32,7 @@
     </style>
 </head>
 <body>
-    <h1>Albums Information</h1>
+    <h1>Albums List</h1>
     <table>
         <tr>
             <th>Album Title</th>
@@ -43,22 +43,22 @@
             <th>Age Restriction</th>
             <th>Tracks</th>
         </tr>
-        {% for album in albums %}
+        {% for album in data['albums'] %}
         <tr>
-            <td>{{ album.title }}</td>
+            <td>{{ album['title'] }}</td>
             <td>
-                {% for genre in album.genres %}
+                {% for genre in album['genres'] %}
                     {{ genre }}{% if not loop.last %}, {% endif %}
                 {% endfor %}
             </td>
             <td>
-                {% for artist in album.artists %}
+                {% for artist in album['artists'] %}
                     {{ artist }}{% if not loop.last %}, {% endif %}
                 {% endfor %}
             </td>
-            <td>{{ album.album_length }}</td>
-            <td>{{ album.release_date }}</td>
-            <td>{{ album.age_restriction }}</td>
+            <td>{{ album['album_length'] }}</td>
+            <td>{{ album['release_date'] }}</td>
+            <td>{{ album['age_restriction'] }}</td>
             <td>
                 <table class="track-table">
                     <tr>
@@ -66,11 +66,11 @@
                         <th>Name</th>
                         <th>Duration</th>
                     </tr>
-                    {% for track in album.tracks %}
+                    {% for track in album['tracks'] %}
                     <tr>
                         <td>{{ loop.index }}</td>
-                        <td>{{ track.name }}</td>
-                        <td>{{ track.duration }}</td>
+                        <td>{{ track['name'] }}</td>
+                        <td>{{ track['duration'] }}</td>
                     </tr>
                     {% endfor %}
                 </table>
@@ -80,3 +80,4 @@
     </table>
 </body>
 </html>
+

@@ -3,30 +3,26 @@ import jmespath
 from jinja2 import Template
 
 json_file = "music_albums.json"
-text_output_file = "albums.txt"
-html_output_file = "albums.html"
+text_output_file = "albumsjson.txt"
+html_output_file = "albumsjson.html"
 
-# Загрузка JSON данных
 def load_json_data(json_file):
     with open(json_file, "r", encoding="utf-8") as f:
         return json.load(f)
 
-# Функция для преобразования строки "мм:сс" в количество секунд
 def convert_to_seconds(duration):
     try:
         minutes, seconds = map(int, duration.split(':'))
         return minutes * 60 + seconds
     except ValueError:
-        return 0  # Если формат неверный, возвращаем 0
+        return 0
 
-# Преобразование длительности всех треков в секунды
 def convert_durations_to_seconds(data):
     for album in data.get("albums", []):
         for track in album.get("tracks", []):
             track["duration_seconds"] = convert_to_seconds(track["duration"])
     return data
 
-# Запросы с использованием JMESPath
 def execute_jmespath_queries(data):
     print("\nРезультаты запросов:")
 
@@ -40,8 +36,7 @@ def execute_jmespath_queries(data):
 
     # 3. Получить все альбомы, в которых есть композиции длиной более пяти минут.
     long_tracks_albums = jmespath.search(
-        'albums[?tracks[?duration_seconds > `300`]].title', data
-    )
+        'albums[?tracks[?duration_seconds > `300`]].title', data)
     print(f"Альбомы, где есть треки длиной более 5 минут: {long_tracks_albums}")
 
     # 4. Сформировать список воспроизведения из заданного количества композиций. Композиции выбираются случайным образом.
@@ -50,11 +45,10 @@ def execute_jmespath_queries(data):
 
     # 5. Получить первые 3 трека из альбомов, где больше 3 треков
     top_tracks_from_large_albums = jmespath.search(
-        'albums[?length(tracks) > `3`].tracks[:3].name', data
-    )
+        'albums[?length(tracks) > `3`].tracks[:3].name', data)
     print(f"Первые 3 трека из альбомов, где больше 3 треков: {top_tracks_from_large_albums}")
 
-# Преобразование JSON в текстовый файл
+# Преобразование JSON в txt
 def transform_to_text(data, template_file, output_file):
     try:
         with open(template_file, "r", encoding="utf-8") as f:
@@ -82,21 +76,11 @@ def transform_to_html(data, template_file, output_file):
     except Exception as e:
         print(f"Ошибка во время преобразования: {e}")
 
-if __name__ == "__main__":
-    # Загрузка JSON данных
-    data = load_json_data(json_file)
-
-    # Преобразование длительности треков в секунды
-    data = convert_durations_to_seconds(data)
-
-    # Выполнение запросов JMESPath
-    execute_jmespath_queries(data)
-
-    # Преобразование в текст
-    transform_to_text(data, "to_text_template.txt", text_output_file)
-
-    # Преобразование в HTML
-    transform_to_html(data, "to_html_template.html", html_output_file)
+data = load_json_data(json_file)
+data = convert_durations_to_seconds(data)
+execute_jmespath_queries(data)      # Выполнение запросов JMESPath
+transform_to_text(data, "to_text_template.txt", text_output_file)       # Преобразование в текст
+transform_to_html(data, "to_html_template.html", html_output_file)      # Преобразование в HTML
 
 
 
